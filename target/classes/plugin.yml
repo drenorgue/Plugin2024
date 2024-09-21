@@ -1,0 +1,18 @@
+  name: Plugin2024
+  main: fr.drenorg.Plugin2024.Main
+  version: 1.0
+  api-version: 1.20
+  commands:
+    play:
+      description: lance le jeu
+      permission: admin.Plugin2024
+      permission-message: §cTu ne peux pas CHEH
+    test:
+      description: commande de test
+      permission: admin.Plugin2024
+      permission-message: §cTu ne peux pas CHEH
+
+    gstop:
+      description: annule le jeu
+      permission: admin.Plugin2024
+      permission-message: §cTu ne peux pas CHEH

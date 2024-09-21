@@ -1,0 +1,6 @@
+fr\drenorg\Plugin2024\events\OnJoin.class
+fr\drenorg\Plugin2024\cmd\Gstop.class
+fr\drenorg\Plugin2024\game\Duel.class
+fr\drenorg\Plugin2024\cmd\Play.class
+fr\drenorg\Plugin2024\events\OnDamage.class
+fr\drenorg\Plugin2024\events\OnLeft.class
