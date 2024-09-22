@@ -37,10 +37,12 @@ public class GameManager {
 
     public RoundManager currentRound;
     public InteractionsManager interactionsManager;
+    public BombManager bombManager;
 
     public void startGame(ArrayList<Player> newPlayers) {
-        currentRound = new RoundManager();
-        interactionsManager = new InteractionsManager();
+        currentRound = new RoundManager(this);
+        interactionsManager = new InteractionsManager(this);
+        bombManager = new BombManager(this);
 
         players = newPlayers;
         Collections.shuffle(players);

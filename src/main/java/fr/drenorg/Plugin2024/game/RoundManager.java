@@ -1,7 +1,5 @@
 package fr.drenorg.Plugin2024.game;
 
-import fr.drenorg.Plugin2024.Main;
-import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -10,12 +8,13 @@ import org.bukkit.inventory.ItemStack;
 import java.util.ArrayList;
 
 public class RoundManager {
-    static final GameManager game = Main.getInstance().Lobby.activeGame;
+    static GameManager game;
 
     public ArrayList<Player> aliveteam1 = new ArrayList<Player>();
     public ArrayList<Player> aliveteam2 = new ArrayList<Player>();
 
-    public RoundManager() {
+    public RoundManager(GameManager game) {
+        this.game = game;
         aliveteam1 = game.getTeam1();
         aliveteam2 = game.getTeam2();
     }
@@ -36,6 +35,6 @@ public class RoundManager {
         }
 
         game.tpSpawn();
-        game.currentRound = new RoundManager();
+        game.currentRound = new RoundManager(game);
     }
 }

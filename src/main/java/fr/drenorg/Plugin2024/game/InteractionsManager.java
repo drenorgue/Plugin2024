@@ -7,6 +7,11 @@ import org.bukkit.entity.Player;
 public class InteractionsManager {
 
     Main main = Main.getInstance();
+    GameManager game;
+
+    public InteractionsManager(GameManager game) {
+        this.game = game;
+    }
 
     public void kill (Player dead){
         RoundManager round = main.Lobby.activeGame.currentRound;

@@ -3,10 +3,7 @@ package fr.drenorg.Plugin2024;
 import fr.drenorg.Plugin2024.cmd.Gstop;
 import fr.drenorg.Plugin2024.cmd.Play;
 import fr.drenorg.Plugin2024.cmd.Test;
-import fr.drenorg.Plugin2024.events.OnDamage;
-import fr.drenorg.Plugin2024.events.OnJoin;
-import fr.drenorg.Plugin2024.events.OnLeft;
-import fr.drenorg.Plugin2024.events.onFoodChange;
+import fr.drenorg.Plugin2024.events.*;
 import fr.drenorg.Plugin2024.game.Duel;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -40,6 +37,7 @@ public class Main extends JavaPlugin {
         pm.registerEvents(new OnLeft(),this);
         pm.registerEvents(new OnDamage(),this);
         pm.registerEvents(new onFoodChange(),this);
+        pm.registerEvents(new PlayerToggleSneak(), this);
     }
 
     @Override
