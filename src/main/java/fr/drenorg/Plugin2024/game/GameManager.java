@@ -54,14 +54,7 @@ public class GameManager {
 
         Bukkit.getConsoleSender().sendMessage("Jeu lancé");
 
-        for (Player player : players){
-            player.setHealth(20);
-            player.setFoodLevel(20);
-            player.getInventory().clear();
-            player.setGameMode(GameMode.ADVENTURE);
-            player.getInventory().addItem(new ItemStack(Material.WOODEN_SWORD));
-            player.getInventory().setItemInOffHand(new ItemStack(Material.SHIELD));
-        }
+        starter();
     }
 
     public void tpSpawn() {
@@ -71,6 +64,26 @@ public class GameManager {
         for (Player player : team2) {
             player.teleport(spawn2);
         }
+    }
+
+    public void switchSide() {
+        ArrayList<Player> temp = team1;
+        team1 = team2;
+        team2 = temp;
+        starter();
+    }
+
+    void starter() {
+        for (Player player : players){
+            new PlayerManager(this, player, 800);
+            player.setHealth(20);
+            player.setFoodLevel(20);
+            player.getInventory().clear();
+            player.setGameMode(GameMode.ADVENTURE);
+            player.getInventory().addItem(new ItemStack(Material.WOODEN_SWORD));
+            player.getInventory().setItemInOffHand(new ItemStack(Material.SHIELD));
+        }
+        tpSpawn();
     }
 
     public void endGame(ArrayList<Player> winner) {

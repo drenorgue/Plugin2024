@@ -8,7 +8,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.ArrayList;
 
 public class RoundManager {
-    static GameManager game;
+    GameManager game;
 
     public ArrayList<Player> aliveteam1 = new ArrayList<Player>();
     public ArrayList<Player> aliveteam2 = new ArrayList<Player>();
@@ -20,8 +20,15 @@ public class RoundManager {
     }
 
     public void roundEnd(ArrayList<Player> winner) {
+        if (winner == game.getTeam1()) {
+            game.score1++;
+        } else {
+            game.score2++;
+        }
         if (game.score1 == GameManager.winScore || game.score2 == GameManager.winScore){
             game.endGame(winner);
+        } else if (game.score1 + game.score2 == GameManager.winScore - 1) {
+            game.switchSide();
         }
         else {
             for (Player player : game.players){
